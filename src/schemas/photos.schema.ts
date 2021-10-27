@@ -1,17 +1,19 @@
 import { gql } from "apollo-server-lambda";
 
 export const typeDefs = gql`
-  type User {
+  type Photo {
     name: String
-    email: String
+    subtitle: String
+    link: String
+    user_id: String
   }
 
   type Mutation {
-    getUser(id: String): User
+    getPhoto(id: String): Photo
   }
 
   type Mutation {
-    createUser(name: String, email: String, password: String): User
+    createPhoto(name: String, subtitle: String, user_id: String): Photo
   }
 
   type Query {

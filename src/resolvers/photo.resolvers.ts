@@ -2,7 +2,7 @@ import UserService from "../services/UserService";
 
 export const resolvers = {
   Mutation: {
-    getUser: async (context: any, args: any) => {
+    getPhoto: async (context: any, args: any) => {
       try {
         const { id } = args;
 
@@ -15,13 +15,13 @@ export const resolvers = {
         return err;
       }
     },
-    createUser: async (context: any, args: any) => {
+    createPhoto: async (context: any, args: any) => {
       try {
-        const { name, email, password } = args;
+        const { name, subtitle, user_id } = args;
 
         const userService = new UserService();
 
-        const user = await userService.create(name, email, password);
+        const user = await userService.create(name, subtitle, user_id);
 
         return user;
       } catch (err) {
